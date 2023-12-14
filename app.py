@@ -10,7 +10,7 @@ bot = telegram.Bot(token=TOKEN)
 
 #start the flask app
 
-flask = Flask(__name__)
+app = Flask(__name__)
 
 #creating routes
 @app.route('/{}'.format(TOKEN), methods=['POST'])
