@@ -36,7 +36,7 @@ def respond():
        """
         # send the welcoming message
         bot.sendMessage(chatid=chat_id, text=bot_welcome, reply_to_message_id=msg_id)
-        
+
     else:
         try:
             # clear the message we got from any non alphabets
@@ -53,15 +53,15 @@ def respond():
     return "ok"
 
 @app.route('/setwebhook', methods=['GET', 'POST'])
-    def set_webhook():
+def set_webhook():
         # we use the bot object to link the bot to our app which live
         # in the link provided by URL
-        s = bot.setWebhook('{URL} {HOOK}'.format(URL=URL, HOOK=TOKEN))
+    s = bot.setWebhook('{URL} {HOOK}'.format(URL=URL, HOOK=TOKEN))
         # something to let us know things work
-        if s:
-            return 'things went well'
-        else:
-            return 'webhook setup failed'
+    if s:
+        return 'things went well'
+    else:
+        return 'webhook setup failed'
 
 @app.route('/')
 def index():
