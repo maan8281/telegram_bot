@@ -48,7 +48,8 @@ def respond():
 
             # reply with a photo to the name the user sent,
             #note that you can send photos by url and telegram will fetch it for you
-            bot.sendPhoto(chat_id=chat_id, photo=url, reply_to_msg_id=msg_id)
+            a = bot.sendPhoto(chat_id=chat_id, photo=url, reply_to_msg_id=msg_id)
+            print(a)
         except Exception:
             # if things went wrong
             bot.sendMessage(chat_id=chat_id, text="There was a problem in the name you used, please enter different name", reply_to_message_id=msg_id)
