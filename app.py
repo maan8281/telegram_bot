@@ -2,7 +2,7 @@ from flask import Flask, request
 import telegarm
 from telebot.credentials import bot_token, bot_user_name, URL
 
-global TOKEN 
+global TOKEN
 global bot
 
 TOKEN = bot_token
@@ -17,7 +17,7 @@ flask = Flask(__name__)
 def respond():
     update = telegram.Update.de_json(request.get_json(force=True), bot)
 
-    chat_id = update.message.chat.id 
+    chat_id = update.message.chat.id
     msg_id = update.message.message_id
 
     # Telegram understands UTF-8, so encode text for unicode compatibility
@@ -27,7 +27,7 @@ def respond():
     print('got text message:', text)
 
     # the first time you chat with the bot AKA the welcoming message
-    if text = "/start":
+    if text == "/start":
         # print the welcoming message
         bot_welcome = """
        Welcome to coolAvatar bot, the bot is using the service from https://api.dicebear.com/7.x/lorelei/svg?seed= to generate cool looking avatars based on the name you enter so please enter a name and the bot will reply with an avatar for your name.
@@ -35,7 +35,7 @@ def respond():
        # send the welcoming message
        bot.sendMessage(chatid=chat_id, text=bot_welcome, reply_to_message_id=msg_id)
     else:
-        try: 
+        try:
             # clear the message we got from any non alphabets
             text = re.sub(r"/W", "_", text)
             # create the api link for the avatar based on https://www.gravatar.com/avatar/
@@ -63,9 +63,8 @@ def respond():
 @app.route('/')
 def index():
     return '.'
-    
+
 if __name__ == '__main__':
     # note the threaded arg which allow
     # your app to have more than one thread
     app.run(threaded=True)
-
