@@ -35,7 +35,7 @@ def respond():
        on the name you enter so please enter a name and the bot will reply with an avatar for your name.
        """
         # send the welcoming message
-        bot.sendMessage(chatid=chat_id, text=bot_welcome, reply_to_message_id=msg_id)
+        bot.sendMessage(chat_id=chat_id, text=bot_welcome, reply_to_message_id=msg_id)
 
     else:
         try:
