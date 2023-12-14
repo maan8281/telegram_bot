@@ -44,6 +44,7 @@ def respond():
             text = re.sub(r"/W", "_", text)
             # create the api link for the avatar based on https://www.gravatar.com/avatar/
             url = "https://api.dicebear.com/7.x/lorelei/png?seed={}".format(text.strip())
+            print(text)
 
             # reply with a photo to the name the user sent,
             #note that you can send photos by url and telegram will fetch it for you
